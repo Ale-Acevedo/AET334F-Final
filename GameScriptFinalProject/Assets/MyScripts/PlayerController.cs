@@ -39,15 +39,24 @@ public class PlayerController : MonoBehaviour
 
             else if (Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f)
             {
-                //if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f), verticalTolerance, collisionLayer))
-                if (!Physics2D.OverlapBox(movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f), new Vector2(verticalTolerance, verticalTolerance), 0f, collisionLayer))
+                if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f), verticalTolerance, collisionLayer))
+                //if (!Physics2D.OverlapBox(movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f), new Vector2(verticalTolerance, verticalTolerance), 0f, collisionLayer))
                 {
                     movePoint.position += new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f);
                 }
             }
 
+            
+
         }
 
+        void OnCollisionEnter2D(Collision collision)
+        {
+            if(collision.gameObject.tag == "Collision")
+            {
+                Debug.Log("bonk");
+            }
+        }
 
     }
 }
