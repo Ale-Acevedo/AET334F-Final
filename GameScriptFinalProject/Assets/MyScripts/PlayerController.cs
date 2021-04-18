@@ -2,7 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//OBSOLETE
+//USE NEW CONTOLLER
+
 //using gamesplusjames tutorial as foundation: youtube.com/watch?v=mbzXIOKZurA
+//Written by Ale
 public class PlayerController : MonoBehaviour
 {
     //all these values made public for easy fine-tuning in editor

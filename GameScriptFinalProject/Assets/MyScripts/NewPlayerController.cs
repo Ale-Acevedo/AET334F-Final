@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Writtem by Ale
+
 public class NewPlayerController : MonoBehaviour
 {
 
