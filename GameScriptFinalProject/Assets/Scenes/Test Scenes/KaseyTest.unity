@@ -9503,7 +9503,7 @@ GameObject:
   - component: {fileID: 1371552258}
   - component: {fileID: 1371552260}
   m_Layer: 0
-  m_Name: Ghast
+  m_Name: GhastFollower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9586,7 +9586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32ba702f8c5cd9d4c8fecaca74a1e316, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.5
+  speed: 0.4
 --- !u!1 &1442558114
 GameObject:
   m_ObjectHideFlags: 0
