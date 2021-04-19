@@ -3,27 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//Written by Pres and Ale
+
 /* Class to handle player healthbar */
 // Referenced Wayra Codes tutorial: https://www.youtube.com/watch?v=NE5cAlCRgzo
 public class PlayerHealthbar : MonoBehaviour
 {
-    private Image healthbar;
+    private Image healthBar;
     public float currentHealth;
     private float maxHealth = 100.0f;
 
     // Later script that handles player damage and health
-    // PlayerHealth player;
+    NewPlayerController player; //added by Ale
 
     // Start is called before the first frame update
     void Start()
     {
-        healthbar = GetComponent<Image>();
+        healthBar = GetComponent<Image>();
+        player = FindObjectOfType<NewPlayerController>(); //added by Ale
     }
 
     // Update is called once per frame
     void Update()
     {
-        // currentHealth = player.health;
-        healthbar.fillAmount = currentHealth / maxHealth;
+        currentHealth = player.health; //edited by Ale
+        healthBar.fillAmount = currentHealth / maxHealth; //edited by Ale
     }
 }

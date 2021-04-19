@@ -12,6 +12,13 @@ public class NewPlayerController : MonoBehaviour
     private float timeToMove = 0.2f; //"Movespeed"
     public float colCheck = 1f; //Raycast distance
 
+    public float health = 100f;
+    private bool isInvincible = false;
+    [SerializeField]
+    private float iFrameDuration;
+
+    public float drainRate = 0.01f;
+
     void Update()
     {
         int layerMask = 1 << 8; //Bit-shifting mask to Collision layer
@@ -40,6 +47,11 @@ public class NewPlayerController : MonoBehaviour
 
     }
 
+    private void FixedUpdate()
+    {
+        health -= 1f * drainRate;
+    }
+
     //Section based on Comp-3 Interactive Tutorial: youtube.com/watch?v=AiZ4z4qKy44
     private IEnumerator MovePlayer(Vector3 direction) //Move player with input direction
     {
@@ -61,4 +73,45 @@ public class NewPlayerController : MonoBehaviour
 
         isMoving = false; //Allow player movement again
     }
+
+    //based on Aleksandr Hovhannisyan's blog post: aleksandrhovhannisyan.com/blog/invulnerability-frames-in-unity/
+    private IEnumerator IFrames()
+    {
+        isInvincible = true;
+        Debug.Log("IFrames on");
+
+        yield return new WaitForSeconds(iFrameDuration); //prevent health decay for specified time
+
+        isInvincible = false;
+        Debug.Log("IFrames off");
+    }
+
+    public void LoseHealth(int amount)
+    {
+        if (isInvincible) return; //return immediately if invincible, negating damage
+
+        health -= amount;
+
+        if (health <= 0) //trigger death event
+        {
+            health = 0;
+            //death event
+            return;
+        }
+
+        StartCoroutine(IFrames());
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if(other.tag == "Enemy")
+        {
+            if (!isInvincible)
+            {
+                LoseHealth(10);
+            }
+        }
+    }
+
+    
 }
