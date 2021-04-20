@@ -17,14 +17,19 @@ public class PatrollingEnemy : MonoBehaviour
 
     public GameObject ghast;
 
-    // Start is called before the first frame update
     void Start()
     {
         waitTime = startWaitTime;
     }
 
-    // Update is called once per frame
+
     void Update()
+    {
+        Patrol();
+    }
+
+    //Enemy patrols between two predetermined spots
+    void Patrol()
     {
         ghast.transform.position = Vector2.MoveTowards(ghast.transform.position, moveSpots[currentMoveSpot].position, speed * Time.deltaTime);
 
@@ -40,7 +45,7 @@ public class PatrollingEnemy : MonoBehaviour
                 {
                     currentMoveSpot = 0;
                 }
-            } 
+            }
             else
             {
                 waitTime -= Time.deltaTime;

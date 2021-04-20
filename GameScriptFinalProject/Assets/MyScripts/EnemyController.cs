@@ -11,18 +11,18 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     private float speed;
 
-    // Start is called before the first frame update
+    //Finds the player gameobject within the scene
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player");
     }
 
-    // Update is called once per frame
     void Update()
     {
         FollowPlayer();
     }
 
+    //Tracks and follows the player's location
     public void FollowPlayer()
     {
         transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
