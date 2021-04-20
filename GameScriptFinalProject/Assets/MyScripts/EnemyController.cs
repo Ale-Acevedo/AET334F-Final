@@ -7,16 +7,13 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    //private Animator myAnim;
     private GameObject target;
     [SerializeField]
     private float speed;
-    //private float range;
 
     // Start is called before the first frame update
     void Start()
     {
-        //myAnim = GetComponent<Animator>();
         target = GameObject.FindGameObjectWithTag("Player");
     }
 
