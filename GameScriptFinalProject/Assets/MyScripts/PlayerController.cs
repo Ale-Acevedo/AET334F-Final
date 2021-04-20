@@ -48,18 +48,8 @@ public class PlayerController : MonoBehaviour
                 {
                     movePoint.position += new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f);
                 }
-            }
+            }  
 
-            
-
-        }
-
-        void OnCollisionEnter2D(Collision collision)
-        {
-            if(collision.gameObject.tag == "Collision")
-            {
-                Debug.Log("bonk");
-            }
         }
 
     }

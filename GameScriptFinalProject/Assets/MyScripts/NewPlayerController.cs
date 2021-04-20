@@ -12,6 +12,8 @@ public class NewPlayerController : MonoBehaviour
     private float timeToMove = 0.2f; //"Movespeed"
     public float colCheck = 1f; //Raycast distance
 
+    public GameObject colManager;
+
     public float health = 100f;
     private bool isInvincible = false;
     [SerializeField]
@@ -46,6 +48,7 @@ public class NewPlayerController : MonoBehaviour
         }
 
     }
+
 
     private void FixedUpdate()
     {
@@ -111,7 +114,14 @@ public class NewPlayerController : MonoBehaviour
                 LoseHealth(10);
             }
         }
+
+        if (other.gameObject.tag == "Collectable")
+        {
+            colManager.GetComponent<CollectableManager>().colGet();
+            Destroy(other.gameObject);
+        }
     }
 
-    
+
+
 }
