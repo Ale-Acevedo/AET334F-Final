@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/About.unity
     guid: b85dda9d3afc5ee4c9291dd40525abe2
   - enabled: 1
+    path: Assets/Scenes/Test Scenes/KaseyTest.unity
+    guid: ea4b608d9cd3ea941b19f151e263b571
+  - enabled: 1
     path: Assets/Scenes/Scene0.unity
     guid: 3c79f2266423799418125782cf313478
   - enabled: 1
