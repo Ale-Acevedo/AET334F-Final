@@ -7,6 +7,9 @@ TagManager:
   - Collision
   - Enemy
   - Collectable
+  - Box
+  - Wall
+  - Cross
   layers:
   - Default
   - TransparentFX
