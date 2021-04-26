@@ -199,6 +199,7 @@ GameObject:
   m_Component:
   - component: {fileID: 52014715}
   - component: {fileID: 52014716}
+  - component: {fileID: 52014717}
   m_Layer: 5
   m_Name: MasterSlider
   m_TagString: Untagged
@@ -279,10 +280,10 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 678649237}
-        m_TargetAssemblyTypeName: SettingsHandler, Assembly-CSharp
-        m_MethodName: SetVolume
-        m_Mode: 4
+      - m_Target: {fileID: 52014717}
+        m_TargetAssemblyTypeName: AudioSlider, Assembly-CSharp
+        m_MethodName: UpdateAudioSlider
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -291,6 +292,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &52014717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 52014714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b96c26d6b09cebc488bea3ec280726ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &61380541
 GameObject:
   m_ObjectHideFlags: 0
@@ -1426,6 +1439,7 @@ GameObject:
   m_Component:
   - component: {fileID: 561461553}
   - component: {fileID: 561461554}
+  - component: {fileID: 561461555}
   m_Layer: 5
   m_Name: SFXSlider
   m_TagString: Untagged
@@ -1505,7 +1519,31 @@ MonoBehaviour:
   m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 561461555}
+        m_TargetAssemblyTypeName: AudioSlider, Assembly-CSharp
+        m_MethodName: UpdateAudioSlider
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &561461555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561461552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b96c26d6b09cebc488bea3ec280726ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &589873114
 GameObject:
   m_ObjectHideFlags: 0
@@ -2053,8 +2091,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eba59615403ffa41b0bcf43731444fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeMixer: {fileID: 24100000, guid: 78109f8c64c009144a1b3db11e0bfa89, type: 2}
-  masterSlider: {fileID: 52014716}
   resolutionDropdown: {fileID: 138597804}
   windowedToggle: {fileID: 755448744}
 --- !u!1 &755448742
@@ -3915,6 +3951,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1959208989}
   - component: {fileID: 1959208990}
+  - component: {fileID: 1959208991}
   m_Layer: 5
   m_Name: MusicSlider
   m_TagString: Untagged
@@ -3994,7 +4031,31 @@ MonoBehaviour:
   m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1959208991}
+        m_TargetAssemblyTypeName: AudioSlider, Assembly-CSharp
+        m_MethodName: UpdateAudioSlider
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1959208991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959208988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b96c26d6b09cebc488bea3ec280726ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1984747457
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,16 +1,12 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Audio;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-/* Class to change and save game settings */
+/* Class to change and save graphics settings */
 // Referenced Tommy Yoder's tutorial: https://www.youtube.com/watch?v=rtpHU1kfabI
-public class SettingsHandler : MonoBehaviour
+public class GraphicsManager : MonoBehaviour
 {
-    public AudioMixer volumeMixer;
-    public Slider masterSlider;
 
     public Dropdown resolutionDropdown;
     private int screenInt;
@@ -20,7 +16,6 @@ public class SettingsHandler : MonoBehaviour
     public Toggle windowedToggle;
     private bool isWindowed = true;
 
-    const string prefName = "optionvalue";
     const string resName = "resolutionoption";
 
     void Awake()
@@ -38,7 +33,7 @@ public class SettingsHandler : MonoBehaviour
         }
 
         resolutionDropdown.onValueChanged.AddListener(new UnityAction<int>(index =>
-        { 
+        {
             PlayerPrefs.SetInt(resName, resolutionDropdown.value);
             PlayerPrefs.Save();
         }));
@@ -47,8 +42,6 @@ public class SettingsHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        masterSlider.value = PlayerPrefs.GetFloat("MasterVolume", 1f);
-        volumeMixer.SetFloat("volume", PlayerPrefs.GetFloat("MasterVolume"));
 
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
@@ -56,12 +49,12 @@ public class SettingsHandler : MonoBehaviour
         List<string> options = new List<string>();
         int currentResolutionIndex = 0;
 
-        for(int index = 0; index < resolutions.Length; index++)
+        for (int index = 0; index < resolutions.Length; index++)
         {
             string option = resolutions[index].width + " X " + resolutions[index].height;
             options.Add(option);
 
-            if(resolutions[index].width == Screen.currentResolution.width 
+            if (resolutions[index].width == Screen.currentResolution.width
                 && resolutions[index].height == Screen.currentResolution.height
                 && resolutions[index].refreshRate == Screen.currentResolution.refreshRate)
             {
@@ -81,17 +74,12 @@ public class SettingsHandler : MonoBehaviour
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
 
-    public void SetVolume(float volume)
-    {
-        PlayerPrefs.SetFloat("MasterVolume", volume);
-        volumeMixer.SetFloat("volume", PlayerPrefs.GetFloat("MasterVolume"));
-    }
-
     public void SetWindowed(bool toggled)
     {
-        Screen.fullScreen = !toggled;
+        isWindowed = toggled;
+        Screen.fullScreen = !isWindowed;
 
-        if(toggled == false)
+        if (isWindowed == false)
         {
             PlayerPrefs.SetInt("togglestate", 0);
         }
@@ -102,9 +90,4 @@ public class SettingsHandler : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
