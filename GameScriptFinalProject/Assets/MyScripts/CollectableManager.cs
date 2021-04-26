@@ -7,7 +7,7 @@ public class CollectableManager : MonoBehaviour
     public GameObject[] collectables;
 
     //private int colTrack;
-    private int colGot = 0;
+    public int colGot = 0;
 
     public static CollectableManager Instance; //specifying this particular instant of the manager
     private void Awake()
