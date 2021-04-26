@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 //Writtem by Ale
 
@@ -47,6 +48,9 @@ public class NewPlayerController : MonoBehaviour
             }
         }
 
+        if (health <= 0){
+            SceneManager.LoadScene("LoseScreen");
+        }
     }
 
 
@@ -98,7 +102,7 @@ public class NewPlayerController : MonoBehaviour
         if (health <= 0) //trigger death event
         {
             health = 0;
-            //death event
+            SceneManager.LoadScene("LoseScreen");
             return;
         }
 
