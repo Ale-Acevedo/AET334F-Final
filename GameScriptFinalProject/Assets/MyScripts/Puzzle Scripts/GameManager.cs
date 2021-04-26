@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     {
         Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         moveInput.Normalize();
-        if (moveInput.sqrMagnitude > 0.5) //Button pressed or held
+        if (moveInput.sqrMagnitude > .5) //Button pressed or held
         {
             if (m_ReadyForInput)
             {
@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    
     public void NextLevel()
     {
         m_NextButton.SetActive(false);
