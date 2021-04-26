@@ -28,12 +28,12 @@ public class CollectableManager : MonoBehaviour
 
     private void Start()
     {
-        collectables = (GameObject.FindGameObjectsWithTag("Collectable"));
+        collectables = (GameObject.FindGameObjectsWithTag("Collectable")); //create a new array of all collectables in current scene
     }
 
     public void colGet()
     {
-        colGot += 1;
+        colGot += 1; //+1 to collectables gotten, function runs on collision in player controller
         Debug.Log(colGot);
     }
 }

@@ -102,14 +102,14 @@ public class NewPlayerController : MonoBehaviour
             return;
         }
 
-        StartCoroutine(IFrames());
+        StartCoroutine(IFrames()); //if player has health remaining, run IFrames
     }
 
     private void OnTriggerStay2D(Collider2D other)
     {
         if(other.tag == "Enemy")
         {
-            if (!isInvincible)
+            if (!isInvincible) //check to make sure player is not invincible during enemy collision
             {
                 LoseHealth(10);
             }
@@ -117,41 +117,9 @@ public class NewPlayerController : MonoBehaviour
 
         if (other.gameObject.tag == "Collectable")
         {
-            colManager.GetComponent<CollectableManager>().colGet();
+            colManager.GetComponent<CollectableManager>().colGet(); //call colGet function from manager
             Destroy(other.gameObject);
         }
-    }
-
-    
-
-    bool Blocked(Vector3 position, Vector2 direction)
-    {
-        Vector2 newPos = new Vector2(position.x, position.y) + direction;
-        GameObject[] walls = GameObject.FindGameObjectsWithTag("Wall");
-        foreach (var wall in walls)
-        {
-            if (wall.transform.position.x == newPos.x && wall.transform.position.y == newPos.y)
-            {
-                return true;
-            }
-        }
-        GameObject[] boxes = GameObject.FindGameObjectsWithTag("Box");
-        foreach (var box in boxes)
-        {
-            if (box.transform.position.x == newPos.x && box.transform.position.y == newPos.y)
-            {
-                Box bx = box.GetComponent<Box>();
-                if (bx && bx.Move(direction))
-                {
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
-            }
-        }
-        return false;
     }
 
 }
