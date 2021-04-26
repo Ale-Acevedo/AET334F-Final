@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -8868272330977153355, guid: f2229efe9779ab647aa0c78d7dd18e4a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 93867992c57105a4ca013a1d0cbf308b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -165,6 +165,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 642cb3ce9c22da44593c00ba45cba120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
+  drainRate: 0.01
+  colCheck: 1
+  colManager: {fileID: 0}
 --- !u!1 &2062957585663142295
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,3 +326,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectables: []
+  colGot: 0
