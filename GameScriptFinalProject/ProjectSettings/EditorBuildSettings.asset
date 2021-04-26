@@ -15,6 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/About.unity
     guid: b85dda9d3afc5ee4c9291dd40525abe2
   - enabled: 1
+    path: Assets/Scenes/LoseScreen.unity
+    guid: bc16f98cd5ad0ad4cb33520b411f094f
+  - enabled: 1
+    path: Assets/Scenes/WinScreen.unity
+    guid: 5ec55783e19e67a4e92026ff130969d8
+  - enabled: 1
     path: Assets/Scenes/Test Scenes/KaseyTest.unity
     guid: ea4b608d9cd3ea941b19f151e263b571
   - enabled: 1
