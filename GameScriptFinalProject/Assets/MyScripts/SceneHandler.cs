@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// Written by Presley
+
 /* Class to handle game scene changes and order */
 public class SceneHandler : MonoBehaviour
 {
