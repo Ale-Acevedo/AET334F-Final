@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public GameObject m_NextButton;
     private bool m_ReadyForInput;
     public Player m_Player;
+    private bool fxToggle = true;
 
     public bool puzzleSolved; //Public bool to let NextLevelScript know when the player has completed the puzzle. - Kasey
 
@@ -36,7 +37,11 @@ public class GameManager : MonoBehaviour
         }
         
         puzzleSolved = IsLevelComplete();
-
+        if (puzzleSolved && fxToggle)
+        {
+            GameObject.Find("SFXManager").GetComponent<AudioSource>().PlayOneShot(GameObject.Find("SFXManager").GetComponent<SFXManager>().sounds[4]);
+            fxToggle = false;
+        }
     }
 
     

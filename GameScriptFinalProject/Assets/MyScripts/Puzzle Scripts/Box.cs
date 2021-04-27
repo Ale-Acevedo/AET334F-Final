@@ -54,9 +54,15 @@ public class Box : MonoBehaviour
             {   //On a cross
                 GetComponent<SpriteRenderer>().color = Color.red;
                 m_OnCross = true;
-                
+                GameObject.Find("SFXManager").GetComponent<AudioSource>().PlayOneShot(GameObject.Find("SFXManager").GetComponent<SFXManager>().sounds[2]);
                 return;
             }
+            //else
+            //{
+            //GameObject.Find("SFXManager").GetComponent<AudioSource>().PlayOneShot(GameObject.Find("SFXManager").GetComponent<SFXManager>().sounds[1]);
+            //return;
+            //}
+            
         }
         
      }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class Player : MonoBehaviour
     private float iFrameDuration;
     public float colCheck = 1f; //Raycast distance
     public GameObject colManager;
-
+    private int walkTick = 0;
 
     public bool Move(Vector2 direction)//Avoid ability to move diagonally
 
@@ -24,6 +25,14 @@ public class Player : MonoBehaviour
         else
         {
             transform.Translate(direction);
+
+            GameObject.Find("SFXManager").GetComponent<AudioSource>().PlayOneShot(GameObject.Find("SFXManager").GetComponent<SFXManager>().footsteps[walkTick]); //access SFXManager footstep array
+            walkTick += 1;
+            if(walkTick == 4) //cycle through array
+            {
+                walkTick = 0;
+            }
+
             return true;
         }
 
@@ -51,6 +60,7 @@ public class Player : MonoBehaviour
                 Box bx = box.GetComponent<Box>();
                 if (bx && bx.Move(direction))
                 {
+                    GameObject.Find("SFXManager").GetComponent<AudioSource>().PlayOneShot(GameObject.Find("SFXManager").GetComponent<SFXManager>().sounds[1]);
                     return false;
                 }
                 else
@@ -84,10 +94,12 @@ public class Player : MonoBehaviour
 
         health -= amount;
 
+        GameObject.Find("SFXManager").GetComponent<AudioSource>().PlayOneShot(GameObject.Find("SFXManager").GetComponent<SFXManager>().sounds[3]);
+
         if (health <= 0) //trigger death event
         {
             health = 0;
-            //death event
+            SceneManager.LoadScene("LoseScreen");
             return;
         }
 
@@ -107,6 +119,7 @@ public class Player : MonoBehaviour
         if (other.gameObject.tag == "Collectable")
         {
             colManager.GetComponent<CollectableManager>().colGet();
+            GameObject.Find("SFXManager").GetComponent<AudioSource>().PlayOneShot(GameObject.Find("SFXManager").GetComponent<SFXManager>().sounds[0]);
             Destroy(other.gameObject);
             
         }
