@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     private bool m_ReadyForInput;
     public Player m_Player;
 
+    public bool puzzleSolved; //Public bool to let NextLevelScript know when the player has completed the puzzle. - Kasey
+
     void Start()
     {
         m_NextButton.SetActive(false);
@@ -32,6 +34,9 @@ public class GameManager : MonoBehaviour
         {
             m_ReadyForInput = true;
         }
+        
+        puzzleSolved = IsLevelComplete();
+
     }
 
     
