@@ -257,9 +257,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 154847108}
     - target: {fileID: 2269973650137600367, guid: 79159fa8ad3c4934d88ee80d3dd07878, type: 3}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2269973650137600367, guid: 79159fa8ad3c4934d88ee80d3dd07878, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 14dc8b98b9f04cb478c9440734c1dcf5, type: 3}
+      objectReference: {fileID: 0}
+    - target: {fileID: 2269973650137600367, guid: 79159fa8ad3c4934d88ee80d3dd07878, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2269973650137600369, guid: 79159fa8ad3c4934d88ee80d3dd07878, type: 3}
       propertyPath: m_Name
       value: SFXManager
@@ -1140,6 +1148,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 139470928367939849, guid: ce16af2d8a6edf444ae6faceb9e30ca3, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c7fcf687299adac46819a972418afd76, type: 3}
     - target: {fileID: 139470928367939854, guid: ce16af2d8a6edf444ae6faceb9e30ca3, type: 3}
       propertyPath: m_Name
       value: MusicManager
