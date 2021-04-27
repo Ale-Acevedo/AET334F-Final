@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 public class NextLevelScript : MonoBehaviour
 {
     //Written by Kasey. 
-    
+
+    public bool puzzleSolved;
+
     void Start()
     {
 
@@ -24,6 +26,7 @@ public class NextLevelScript : MonoBehaviour
         if (other.tag == "Player")      //Later add "if win condition is true"
         {
             StartCoroutine(NextLevel());
+            Debug.Log("player detected");
         }
     }
 
