@@ -7,27 +7,36 @@ public class NextLevelScript : MonoBehaviour
 {
     //Written by Kasey. 
 
-    public bool puzzleSolved;
+    private GameManager gameManager;
 
     void Start()
     {
-
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     void Update()
     {
-
+        
     }
 
     //Detects if the player has entered the goal tile.
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player")      //Later add "if win condition is true"
+
+        if (gameManager.puzzleSolved ==  true) //Checks if the player has solved the puzzle
         {
-            StartCoroutine(NextLevel());
-            Debug.Log("player detected");
+            if (other.tag == "Player")      
+            {
+                StartCoroutine(NextLevel());
+                //Debug.Log("puzzle solved");
+            }
         }
+        else //If the player has not solved the puzzle, they won't be able to go to the next level
+        {
+            //Debug.Log("puzzle not solved");
+        }
+
     }
 
     //Transitions to the next scene. 

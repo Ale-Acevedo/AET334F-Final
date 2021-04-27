@@ -29,7 +29,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LoseScreen.unity
     guid: bc16f98cd5ad0ad4cb33520b411f094f
-  - enabled: 0
+  - enabled: 1
+    path: Assets/Scenes/Test Scenes/KaseyTest2.unity
+    guid: 4a74639ca66fbdc4f9347ab817ea1f5d
+  - enabled: 1
     path: Assets/Scenes/Test Scenes/KaseyTest.unity
     guid: ea4b608d9cd3ea941b19f151e263b571
   - enabled: 0
