@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Puzzle 1");
     }
 
-    public bool IsLevelComplete()
+    bool IsLevelComplete()
     {
         Box[] boxes = FindObjectsOfType<Box>();
         foreach (var box in boxes)
