@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     private bool isInvincible = false;
     public float health = 100f;
     public float drainRate = 0.01f;
+    [SerializeField]
     private float iFrameDuration;
     public float colCheck = 1f; //Raycast distance
     public GameObject colManager;
@@ -105,8 +106,9 @@ public class Player : MonoBehaviour
 
         if (other.gameObject.tag == "Collectable")
         {
-            colManager.GetComponent<CollectableManager>().colGet();
+
             Destroy(other.gameObject);
+            colManager.GetComponent<CollectableManager>().colGet();
         }
     }
 }

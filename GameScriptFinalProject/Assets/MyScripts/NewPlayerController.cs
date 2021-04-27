@@ -121,8 +121,9 @@ public class NewPlayerController : MonoBehaviour
 
         if (other.gameObject.tag == "Collectable")
         {
-            colManager.GetComponent<CollectableManager>().colGet(); //call colGet function from manager
+            
             Destroy(other.gameObject);
+            colManager.GetComponent<CollectableManager>().colGet(); //call colGet function from manager
         }
     }
 
