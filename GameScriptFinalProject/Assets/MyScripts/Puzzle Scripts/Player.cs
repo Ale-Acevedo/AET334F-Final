@@ -106,9 +106,9 @@ public class Player : MonoBehaviour
 
         if (other.gameObject.tag == "Collectable")
         {
-
-            Destroy(other.gameObject);
             colManager.GetComponent<CollectableManager>().colGet();
+            Destroy(other.gameObject);
+            
         }
     }
 }
