@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//Written by Kasey
 public class NextLevelScript : MonoBehaviour
 {
-    //Written by Kasey. 
-
     private GameManager gameManager;
 
     void Start()
@@ -14,17 +13,10 @@ public class NextLevelScript : MonoBehaviour
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
-    void Update()
-    {
-        
-    }
-
     //Detects if the player has entered the goal tile.
-
     private void OnTriggerEnter2D(Collider2D other)
     {
-
-        if (gameManager.puzzleSolved ==  true) //Checks if the player has solved the puzzle
+        if (gameManager.puzzleSolved == true) //Checks if the player has solved the puzzle
         {
             if (other.tag == "Player")      
             {
@@ -36,14 +28,12 @@ public class NextLevelScript : MonoBehaviour
         {
             //Debug.Log("puzzle not solved");
         }
-
     }
 
     //Transitions to the next scene. 
-
     IEnumerator NextLevel()
     {
-        yield return new WaitForSeconds(0.2f);      //Waits 0.2 seconds to allow the player to fully move onto the tile.
+        yield return new WaitForSeconds(0.2f); //Waits 0.2 seconds to allow the player to fully move onto the tile.
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

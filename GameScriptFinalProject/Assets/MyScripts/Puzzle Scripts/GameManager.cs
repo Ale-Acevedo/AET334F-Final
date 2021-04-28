@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
         Box[] boxes = FindObjectsOfType<Box>();
         foreach (var box in boxes)
         {
-            if (!box.m_OnCross) return false;
+            if (!box.OnCross) return false;
         }
 
         

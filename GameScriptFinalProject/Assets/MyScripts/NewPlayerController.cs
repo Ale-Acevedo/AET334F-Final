@@ -4,22 +4,16 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 //Writtem by Ale
-
 public class NewPlayerController : MonoBehaviour
 {
-
     private bool isMoving; //Check if player is moving already
     private Vector3 origPos, targetPos; //Position declarations for IEnumerator
     private float timeToMove = 0.2f; //"Movespeed"
     public float colCheck = 1f; //Raycast distance
-
     public GameObject colManager;
-
     public float health = 100f;
     private bool isInvincible = false;
-    [SerializeField]
-    private float iFrameDuration;
-
+    [SerializeField] private float iFrameDuration;
     public float drainRate = 0.01f;
 
     void Update()
@@ -53,7 +47,6 @@ public class NewPlayerController : MonoBehaviour
         }
     }
 
-
     private void FixedUpdate()
     {
         health -= 1f * drainRate;
@@ -63,9 +56,7 @@ public class NewPlayerController : MonoBehaviour
     private IEnumerator MovePlayer(Vector3 direction) //Move player with input direction
     {
         isMoving = true; //Keep player from moving in-between
-
         float elapsedTime = 0; //Begin counting time elapsed during movement
-
         origPos = transform.position; //Track start and goal positions
         targetPos = origPos + direction;
 
@@ -77,7 +68,6 @@ public class NewPlayerController : MonoBehaviour
         }
 
         transform.position = targetPos; //Force player in grid to correct offsets
-
         isMoving = false; //Allow player movement again
     }
 
@@ -86,9 +76,7 @@ public class NewPlayerController : MonoBehaviour
     {
         isInvincible = true;
         Debug.Log("IFrames on");
-
         yield return new WaitForSeconds(iFrameDuration); //prevent health decay for specified time
-
         isInvincible = false;
         Debug.Log("IFrames off");
     }
@@ -96,9 +84,7 @@ public class NewPlayerController : MonoBehaviour
     public void LoseHealth(int amount)
     {
         if (isInvincible) return; //return immediately if invincible, negating damage
-
         health -= amount;
-
         if (health <= 0) //trigger death event
         {
             health = 0;
@@ -120,11 +106,9 @@ public class NewPlayerController : MonoBehaviour
         }
 
         if (other.gameObject.tag == "Collectable")
-        {
-            
+        {   
             Destroy(other.gameObject);
             colManager.GetComponent<CollectableManager>().colGet(); //call colGet function from manager
         }
     }
-
 }

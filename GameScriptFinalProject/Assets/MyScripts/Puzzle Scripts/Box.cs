@@ -2,12 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class Box : MonoBehaviour
 {
-    public GameObject m_NextButton;
-
-    public bool m_OnCross; //True if box has been pushed on to a cross
+    public GameObject nextButton;
+    public bool OnCross; //True if box has been pushed on to a cross
 
     public bool Move(Vector2 direction) //Avoid abiliy to move diagonolally
     {
@@ -27,6 +25,7 @@ public class Box : MonoBehaviour
     {
         Vector2 newPos = new Vector2(position.x, position.y) + direction;
         GameObject[] walls = GameObject.FindGameObjectsWithTag("Wall");
+
         foreach (var wall in walls)
         {
             if (wall.transform.position.x == newPos.x && wall.transform.position.y == newPos.y)
@@ -35,6 +34,7 @@ public class Box : MonoBehaviour
             }
         }
         GameObject[] boxes = GameObject.FindGameObjectsWithTag("Box");
+
         foreach (var box in boxes)
         {
             if (box.transform.position.x == newPos.x && box.transform.position.y == newPos.y)
@@ -42,6 +42,7 @@ public class Box : MonoBehaviour
                 return true;
             }
         }
+
         return false;
     }
 
@@ -53,21 +54,11 @@ public class Box : MonoBehaviour
             if (transform.position.x == cross.transform.position.x && transform.position.y == cross.transform.position.y)
             {   //On a cross
                 GetComponent<SpriteRenderer>().color = Color.red;
-                m_OnCross = true;
+                OnCross = true;
                 GameObject.Find("SFXManager").GetComponent<AudioSource>().PlayOneShot(GameObject.Find("SFXManager").GetComponent<SFXManager>().sounds[2]);
                 return;
-            }
-            //else
-            //{
-            //GameObject.Find("SFXManager").GetComponent<AudioSource>().PlayOneShot(GameObject.Find("SFXManager").GetComponent<SFXManager>().sounds[1]);
-            //return;
-            //}
-            
-        }
-        
+            }          
+        }      
      }
-
-    
-
 }
 

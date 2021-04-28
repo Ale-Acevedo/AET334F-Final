@@ -8,8 +8,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     private GameObject target;
-    [SerializeField]
-    private float speed;
+    [SerializeField] private float speed;
 
     //Finds the player gameobject within the scene
     void Start()

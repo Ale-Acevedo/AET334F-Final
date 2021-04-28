@@ -2,14 +2,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 // Written by Presley
-
-/* Class to adjust audiosources based on settings volume sliders */
+// Class to adjust audiosources based on settings volume sliders
 // Referenced ChrisVernerStudio tutorial: https://www.youtube.com/watch?v=s-Y4e0mNuwI
 public class VolumeController : MonoBehaviour
 {
     private AudioSource musicAudio;
     private AudioSource sfxAudio;
-
     public Slider musicVolume;
     public Slider sfxVolume;
 
@@ -17,7 +15,6 @@ public class VolumeController : MonoBehaviour
     {
         musicAudio = GameObject.Find("MusicManager").GetComponent<AudioSource>();
         sfxAudio = GameObject.Find("SFXManager").GetComponent<AudioSource>();
-
         // Start with saved volume preferences, default is full volume (1)
         musicVolume.value = PlayerPrefs.GetFloat("MusicVolume", 1.0f);
         sfxVolume.value = PlayerPrefs.GetFloat("SFXVolume", 1.0f);

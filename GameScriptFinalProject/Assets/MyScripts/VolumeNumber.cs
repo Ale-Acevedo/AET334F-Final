@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 // Written by Presley
-
 /* Class to update volume number display */
 public class VolumeNumber : MonoBehaviour
 {
@@ -16,8 +15,7 @@ public class VolumeNumber : MonoBehaviour
         else
         {
             UpdateNumber(PlayerPrefs.GetFloat("SFXVolume"));
-        }
-        
+        }  
     }
 
     // Convert volume float to text display

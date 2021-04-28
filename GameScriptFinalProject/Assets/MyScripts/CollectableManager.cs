@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Written by Ale
+
 public class CollectableManager : MonoBehaviour
 {
     public GameObject[] collectables;
-
     //private int colTrack;
     public int colGot = 0;
-
     public static CollectableManager Instance; //specifying this particular instant of the manager
+
     private void Awake()
     {
         this.transform.parent = null;
@@ -23,7 +24,6 @@ public class CollectableManager : MonoBehaviour
         {
             Destroy(gameObject); //all subsequent copies of this manager will be deleted on load
         }
-
     }
 
     private void Start()
