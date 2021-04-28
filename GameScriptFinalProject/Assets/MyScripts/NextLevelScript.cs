@@ -7,10 +7,19 @@ using UnityEngine.SceneManagement;
 public class NextLevelScript : MonoBehaviour
 {
     private GameManager gameManager;
+    public Sprite colorHeart;
 
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
+
+    void Update()
+    {
+        if (gameManager.puzzleSolved == true) //Checks if the player has solved the puzzle
+        {
+            ChangeSprite();
+        }
     }
 
     //Detects if the player has entered the goal tile.
@@ -21,12 +30,11 @@ public class NextLevelScript : MonoBehaviour
             if (other.tag == "Player")      
             {
                 StartCoroutine(NextLevel());
-                //Debug.Log("puzzle solved");
             }
         }
         else //If the player has not solved the puzzle, they won't be able to go to the next level
         {
-            //Debug.Log("puzzle not solved");
+
         }
     }
 
@@ -35,5 +43,10 @@ public class NextLevelScript : MonoBehaviour
     {
         yield return new WaitForSeconds(0.2f); //Waits 0.2 seconds to allow the player to fully move onto the tile.
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    void ChangeSprite()
+    {
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = colorHeart;
     }
 }

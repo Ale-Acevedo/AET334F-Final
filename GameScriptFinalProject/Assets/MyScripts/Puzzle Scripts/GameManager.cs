@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
         }
         
         puzzleSolved = IsLevelComplete();
+
         if (puzzleSolved && fxToggle)
         {
             GameObject.Find("SFXManager").GetComponent<AudioSource>().PlayOneShot(GameObject.Find("SFXManager").GetComponent<SFXManager>().sounds[4]);
