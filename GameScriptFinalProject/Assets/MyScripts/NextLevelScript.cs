@@ -45,6 +45,7 @@ public class NextLevelScript : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    //Changes the sprite to a colored heart
     void ChangeSprite()
     {
         this.gameObject.GetComponent<SpriteRenderer>().sprite = colorHeart;
