@@ -39,6 +39,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Scene0.unity
     guid: 3c79f2266423799418125782cf313478
   - enabled: 0
-    path: Assets/Scenes/GitTest.unity
+    path: Assets/Scenes/Test Scenes/GitTest.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}
