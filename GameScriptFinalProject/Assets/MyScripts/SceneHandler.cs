@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,5 +9,11 @@ public class SceneHandler : MonoBehaviour
     public void SceneByObjectName()
     {
         SceneManager.LoadScene(this.name);
+    }
+
+    // Quits game
+    public void Quit()
+    {
+        Application.Quit();
     }
 }
