@@ -957,11 +957,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 582840990}
   m_CullTransparentMesh: 1
---- !u!1 &602793986 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3408483857038900417, guid: 0e280780ac4fecf4e82bcd1f3b9e667c, type: 3}
-  m_PrefabInstance: {fileID: 843232697}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &604599692
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1263,7 +1258,7 @@ Transform:
   - {fileID: 351693257}
   - {fileID: 825447543}
   m_Father: {fileID: 0}
-  m_RootOrder: 39
+  m_RootOrder: 40
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &702861202
 PrefabInstance:
@@ -1631,7 +1626,7 @@ PrefabInstance:
     - target: {fileID: -5190254867945373635, guid: 0e280780ac4fecf4e82bcd1f3b9e667c, type: 3}
       propertyPath: colManager
       value: 
-      objectReference: {fileID: 602793986}
+      objectReference: {fileID: 0}
     - target: {fileID: -5190254867945373635, guid: 0e280780ac4fecf4e82bcd1f3b9e667c, type: 3}
       propertyPath: iFrameDuration
       value: 1.5
@@ -1957,7 +1952,7 @@ Transform:
   m_Children:
   - {fileID: 1156421020}
   m_Father: {fileID: 0}
-  m_RootOrder: 37
+  m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &933150112
 PrefabInstance:
@@ -45041,7 +45036,7 @@ Transform:
   - {fileID: 1722467719}
   - {fileID: 721321886}
   m_Father: {fileID: 0}
-  m_RootOrder: 36
+  m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1305207837
 PrefabInstance:
@@ -46048,8 +46043,8 @@ Canvas:
   m_GameObject: {fileID: 1877728396}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 435938138}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -46058,7 +46053,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!224 &1877728400
 RectTransform:
