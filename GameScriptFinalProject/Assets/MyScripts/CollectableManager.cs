@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class CollectableManager : MonoBehaviour
 {
-    public GameObject[] collectables;
+    //public GameObject[] collectables;
     //private int colTrack;
     public int colGot = 0;
     public static CollectableManager Instance; //specifying this particular instant of the manager
@@ -26,10 +26,10 @@ public class CollectableManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        collectables = (GameObject.FindGameObjectsWithTag("Collectable")); //create a new array of all collectables in current scene
-    }
+    //private void Start()
+    //{
+        //collectables = (GameObject.FindGameObjectsWithTag("Collectable")); //create a new array of all collectables in current scene
+    //}
 
     public void colGet()
     {

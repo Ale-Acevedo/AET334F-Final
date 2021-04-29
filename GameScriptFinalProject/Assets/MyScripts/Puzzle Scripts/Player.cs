@@ -13,6 +13,11 @@ public class Player : MonoBehaviour
     public GameObject colManager;
     private int walkTick = 0;
 
+    private void Start()
+    {
+        colManager = GameObject.Find("ColManager");
+    }
+
     public bool Move(Vector2 direction)//Avoid ability to move diagonally
     {
         if (Blocked(transform.position, direction))

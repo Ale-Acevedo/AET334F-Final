@@ -18,6 +18,11 @@ public class NewPlayerController : MonoBehaviour
 
     void Update()
     {
+        if(colManager == null)
+        {
+            Debug.Log("colManager missing");
+            colManager = GameObject.Find("ColManager");
+        }
         int layerMask = 1 << 8; //Bit-shifting mask to Collision layer
         if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f && !isMoving) //Only accepts max input values when player is not moving
         {
@@ -104,9 +109,12 @@ public class NewPlayerController : MonoBehaviour
                 LoseHealth(10);
             }
         }
+    }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
         if (other.gameObject.tag == "Collectable")
-        {   
+        {
             Destroy(other.gameObject);
             colManager.GetComponent<CollectableManager>().colGet(); //call colGet function from manager
         }
