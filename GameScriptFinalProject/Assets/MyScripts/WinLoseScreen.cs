@@ -3,14 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//Written by Kasey.
+
 public class WinLoseScreen : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     //Returns the player to the main menu. 
     public void PlayAgain()
     {
