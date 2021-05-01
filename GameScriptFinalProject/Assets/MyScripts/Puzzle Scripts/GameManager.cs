@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
     public GameObject m_NextButton;
     private bool m_ReadyForInput;
     public Player m_Player;
+    private bool fxToggle = true;
+
+    public bool puzzleSolved; //Public bool to let NextLevelScript know when the player has completed the puzzle. - Kasey
 
     void Start()
     {
@@ -25,12 +28,20 @@ public class GameManager : MonoBehaviour
             {
                 m_ReadyForInput = false;
                 m_Player.Move(moveInput);
-                m_NextButton.SetActive(IsLevelComplete());
+                //m_NextButton.SetActive(IsLevelComplete());
             }
         }
         else
         {
             m_ReadyForInput = true;
+        }
+        
+        puzzleSolved = IsLevelComplete();
+
+        if (puzzleSolved && fxToggle)
+        {
+            GameObject.Find("SFXManager").GetComponent<AudioSource>().PlayOneShot(GameObject.Find("SFXManager").GetComponent<SFXManager>().sounds[4]);
+            fxToggle = false;
         }
     }
 
@@ -50,7 +61,7 @@ public class GameManager : MonoBehaviour
         Box[] boxes = FindObjectsOfType<Box>();
         foreach (var box in boxes)
         {
-            if (!box.m_OnCross) return false;
+            if (!box.OnCross) return false;
         }
 
         

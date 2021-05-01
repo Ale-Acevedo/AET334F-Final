@@ -1,21 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-// Credit to Ale, code from their Challenge 3
+// Written by Presley & Ale
+/* Class to adjust sfx audiosource */
 public class SFXManager : MonoBehaviour
 {
-    public static SFXManager Instance; //specifying this particular instant of the manager
+    public AudioSource sfx;
+    // Credit to Ale, code from Ale's Challenge 3 assignment
+    // Ensures that there is only one copy of this gameobject
+    public static SFXManager Instance;
+    public AudioClip[] sounds;
+    public AudioClip[] footsteps;
+
     private void Awake()
     {
-        if (Instance == null) //checking for other copies of the manager
+        if (Instance == null) 
         {
             DontDestroyOnLoad(gameObject);
-            Instance = this; //on first load, declare this particular instance of the manager as the original
+            Instance = this; 
         }
         else if (Instance != this)
         {
-            Destroy(gameObject); //all subsequent copies of this manager will be deleted on load
+            Destroy(gameObject); 
         }
+    }
+
+    void Start()
+    {
+        sfx = GetComponent<AudioSource>();
+        Time.timeScale = 1f;
+        sfx.volume = PlayerPrefs.GetFloat("SFXVolume", 1.0f);
     }
 }
