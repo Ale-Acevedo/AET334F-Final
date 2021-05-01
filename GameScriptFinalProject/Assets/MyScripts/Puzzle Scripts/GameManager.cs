@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
             {
                 m_ReadyForInput = false;
                 m_Player.Move(moveInput);
-                m_NextButton.SetActive(IsLevelComplete());
+                //m_NextButton.SetActive(IsLevelComplete());
             }
         }
         else
