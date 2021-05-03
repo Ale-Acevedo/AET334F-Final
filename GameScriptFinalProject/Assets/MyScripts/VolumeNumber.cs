@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 // Written by Presley
 /* Class to update volume number display */
@@ -21,6 +21,6 @@ public class VolumeNumber : MonoBehaviour
     // Convert volume float to text display
     public void UpdateNumber(float volume)
     {
-        gameObject.GetComponent<Text>().text = "" + ((int)(volume * 100));
+        gameObject.GetComponent<TMP_Text>().text = "" + ((int)(volume * 100));
     }
 }

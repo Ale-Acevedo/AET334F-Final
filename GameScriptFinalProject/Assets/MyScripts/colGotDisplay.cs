@@ -1,19 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 //Written by Ale
 
 public class colGotDisplay : MonoBehaviour
 {
     [SerializeField] GameObject colManager; //serialized to check for proper functionality in editor
-    private Text text;
+    private TMP_Text text;
 
     void Start()
     {
         colManager = GameObject.Find("ColManager"); //locate manager
-        text = GetComponent<Text>(); //get text component
+        text = GetComponent<TMP_Text>(); //get text component
     }
 
     void Update()
