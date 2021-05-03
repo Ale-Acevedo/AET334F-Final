@@ -48285,8 +48285,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c671b575bc24b84ba2262d0a49299e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelBuilder: {fileID: 0}
-  nextButton: {fileID: 0}
+  levelBuilder: {fileID: 2123330879}
+  nextButton: {fileID: 1925700371}
   player: {fileID: 1041133379}
   puzzleSolved: 0
 --- !u!4 &1262667966

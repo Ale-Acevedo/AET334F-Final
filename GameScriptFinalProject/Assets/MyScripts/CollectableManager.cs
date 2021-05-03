@@ -11,7 +11,7 @@ public class CollectableManager : MonoBehaviour
 
     private void Start()
     {
-        if(SceneManager.GetActiveScene().name == "Puzzle 1")
+        if(SceneManager.GetActiveScene().name == "Puzzle 1" || SceneManager.GetActiveScene().name == "LoseScreen")
         {
             colGot = 0;
         }
