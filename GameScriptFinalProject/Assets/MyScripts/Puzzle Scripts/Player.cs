@@ -3,33 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//Written by Jacob and Ale
+
 public class Player : MonoBehaviour
 {
-    private bool isInvincible = false;
-    public float health = 100f;
-    public float drainRate = 0.01f;
-    [SerializeField] private float iFrameDuration;
+    private bool isInvincible = false; //boolean that sets the player to not invincible when false, invincible when true
+    public float health = 100f; //sets the player health
+    public float drainRate = 0.01f; //sets the player's health's drain rate
+    [SerializeField] private float iFrameDuration; //Sets the duration of invincibility frames
     public float colCheck = 1f; //Raycast distance
-    public GameObject colManager;
-    private int walkTick = 0;
+    public GameObject colManager; //Collectable Manager
+    private int walkTick = 0; //walkTick integer
 
     private void Start()
     {
-        colManager = GameObject.Find("ColManager");
+        colManager = GameObject.Find("ColManager"); //Establishes collectable manager
     }
 
     public bool Move(Vector2 direction)//Avoid ability to move diagonally
     {
         if (Blocked(transform.position, direction))
         {
-            return false;
+            return false; //If the player tries to move in the direction of a wall, they will be blocked and cannot move that direction
         }
         else
         {
-            transform.Translate(direction);
-            GameObject.Find("SFXManager").GetComponent<AudioSource>().PlayOneShot(GameObject.Find("SFXManager").GetComponent<SFXManager>().footsteps[walkTick]); //access SFXManager footstep array
+            transform.Translate(direction); //Move a certain direction
+            GameObject.Find("SFXManager").GetComponent<AudioSource>().PlayOneShot(GameObject.Find("SFXManager").GetComponent<SFXManager>().footsteps[walkTick]); //Access SFXManager footstep array
             walkTick += 1;
-            if(walkTick == 4) //cycle through array
+            if(walkTick == 4) //Cycle through array
             {
                 walkTick = 0;
             }
@@ -41,7 +43,7 @@ public class Player : MonoBehaviour
     bool Blocked(Vector3 position, Vector2 direction)
     {
         Vector2 newPos = new Vector2(position.x, position.y) + direction;
-        GameObject[] walls = GameObject.FindGameObjectsWithTag("Wall");
+        GameObject[] walls = GameObject.FindGameObjectsWithTag("Wall"); //Finds objects tagged with "Wall"
 
         foreach (var wall in walls)
         {
@@ -50,7 +52,7 @@ public class Player : MonoBehaviour
                 return true;
             }
         }
-        GameObject[] boxes = GameObject.FindGameObjectsWithTag("Box");
+        GameObject[] boxes = GameObject.FindGameObjectsWithTag("Box"); //If objects are tagged with "Box", and if player moves the box in an area not tagged with "Wall" or "Box", then move the box in that direction
         foreach (var box in boxes)
         {
             if (box.transform.position.x == newPos.x && box.transform.position.y == newPos.y)
@@ -72,18 +74,18 @@ public class Player : MonoBehaviour
         return false;
     }
 
-    private IEnumerator IFrames()
+    private IEnumerator IFrames() //Invincibility Frames
     {
         isInvincible = true;
         Debug.Log("IFrames on");
-        yield return new WaitForSeconds(iFrameDuration); //prevent health decay for specified time
+        yield return new WaitForSeconds(iFrameDuration); //Prevents health decay for specified time
         isInvincible = false;
         Debug.Log("IFrames off");
     }
 
     private void FixedUpdate()
     {
-        health -= 1f * drainRate;
+        health -= 1f * drainRate; //Player slowly loses health overtime
     }
 
     public void LoseHealth(int amount)
@@ -96,10 +98,10 @@ public class Player : MonoBehaviour
         health -= amount;
         GameObject.Find("SFXManager").GetComponent<AudioSource>().PlayOneShot(GameObject.Find("SFXManager").GetComponent<SFXManager>().sounds[3]);
 
-        if (health <= 0) //trigger death event
+        if (health <= 0) //Trigger death event
         {
             health = 0;
-            SceneManager.LoadScene("LoseScreen");
+            SceneManager.LoadScene("LoseScreen"); //Loads the gameover screen
             return;
         }
 
@@ -108,19 +110,19 @@ public class Player : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.tag == "Enemy")
+        if (other.tag == "Enemy") //If the player touches an NPC tagged as "enemy":
         {
-            if (!isInvincible)
+            if (!isInvincible) //If the player is NOT invincible from Iframes
             {
-                LoseHealth(10);
+                LoseHealth(10); //Player loses health
             }
         }
 
-        if (other.gameObject.tag == "Collectable")
+        if (other.gameObject.tag == "Collectable") //if the player collides with an object with the collectable tag:
         {
-            colManager.GetComponent<CollectableManager>().colGet();
-            GameObject.Find("SFXManager").GetComponent<AudioSource>().PlayOneShot(GameObject.Find("SFXManager").GetComponent<SFXManager>().sounds[0]);
-            Destroy(other.gameObject);           
+            colManager.GetComponent<CollectableManager>().colGet(); //Fetch the collectable manager
+            GameObject.Find("SFXManager").GetComponent<AudioSource>().PlayOneShot(GameObject.Find("SFXManager").GetComponent<SFXManager>().sounds[0]); //Play sound effect
+            Destroy(other.gameObject); //Destroy the game object
         }
     }
 }
