@@ -6,7 +6,6 @@ using UnityEngine;
 //When using this architecture for your manager, make sure to replace the 'PersistantManagerArchitecture' instances with the relevant class
 //Just copy and paste this code at the beginning of your script, and fill in the logic from there
 //Keep the comments for documentation
-
 public class PersistantManagerArchitecture : MonoBehaviour
 {
     public static PersistantManagerArchitecture Instance; //specifying this particular instant of the manager

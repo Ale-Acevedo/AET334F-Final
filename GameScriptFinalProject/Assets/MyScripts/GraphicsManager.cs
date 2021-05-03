@@ -3,8 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 // Written by Presley
-
-/* Class to change and save graphics settings */
+// Class to change and save graphics settings 
 // Referenced Tommy Yoder's tutorial: https://www.youtube.com/watch?v=rtpHU1kfabI
 public class GraphicsManager : MonoBehaviour
 {
@@ -17,6 +16,7 @@ public class GraphicsManager : MonoBehaviour
     void Awake()
     {
         screenInt = PlayerPrefs.GetInt("ToggleState", 1);
+
         if (screenInt == 1)
         {
             windowedToggle.isOn = true;
@@ -36,11 +36,13 @@ public class GraphicsManager : MonoBehaviour
         resolutionDropdown.ClearOptions();
         List<string> options = new List<string>();
         int currentResolutionIndex = 0;
+
         for (int index = 0; index < resolutions.Length; index++)
         {
             // Resolution string shown in the dropdown
             string option = resolutions[index].width + " X " + resolutions[index].height;
             options.Add(option);
+
             if (resolutions[index].width == Screen.currentResolution.width 
                 && resolutions[index].height == Screen.currentResolution.height)
             {
@@ -65,6 +67,7 @@ public class GraphicsManager : MonoBehaviour
     public void SetWindowed(bool toggled)
     {
         Screen.fullScreen = !toggled;
+
         // Save this preference
         if (toggled)
         {

@@ -34,7 +34,7 @@ public class NextLevelScript : MonoBehaviour
         }
         else //If the player has not solved the puzzle, they won't be able to go to the next level
         {
-
+            //Debug.Log("unsolved");
         }
     }
 

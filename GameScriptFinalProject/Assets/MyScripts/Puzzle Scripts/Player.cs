@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float iFrameDuration; //Sets the duration of invincibility frames
     public float colCheck = 1f; //Raycast distance
     public GameObject colManager; //Collectable Manager
-    private int walkTick = 0; //walkTick integer
+    private int walkTick = 0; //walkTick integer for crawling through walk SFX array
 
     private void Start()
     {
@@ -52,6 +52,7 @@ public class Player : MonoBehaviour
                 return true;
             }
         }
+
         GameObject[] boxes = GameObject.FindGameObjectsWithTag("Box"); //If objects are tagged with "Box", and if player moves the box in an area not tagged with "Wall" or "Box", then move the box in that direction
         foreach (var box in boxes)
         {
@@ -76,7 +77,7 @@ public class Player : MonoBehaviour
 
     private IEnumerator IFrames() //Invincibility Frames
     {
-        isInvincible = true;
+        isInvincible = true; //Player will not take repeated damage from remaining in enemy trigger while active
         Debug.Log("IFrames on");
         yield return new WaitForSeconds(iFrameDuration); //Prevents health decay for specified time
         isInvincible = false;

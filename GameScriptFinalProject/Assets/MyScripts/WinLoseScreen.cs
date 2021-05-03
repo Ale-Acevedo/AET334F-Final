@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 //Written by Kasey.
-
 public class WinLoseScreen : MonoBehaviour
 {
     //Returns the player to the main menu. 

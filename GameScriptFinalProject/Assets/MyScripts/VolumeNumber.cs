@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 
 // Written by Presley
-/* Class to update volume number display */
+// Class to update volume number display
 public class VolumeNumber : MonoBehaviour
 {
     void Start()

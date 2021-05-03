@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //OBSOLETE
-//USE NEW CONTOLLER
+//USE JAY'S CONTOLLER
 //using gamesplusjames tutorial as foundation: youtube.com/watch?v=mbzXIOKZurA
 //Written by Ale
 public class PlayerController : MonoBehaviour

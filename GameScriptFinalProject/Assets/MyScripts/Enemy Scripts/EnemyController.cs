@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //Code referenced from this video: https://www.youtube.com/watch?v=dy8hkDmygRI
-//Written by Kasey.
-
+//Written by Kasey
 public class EnemyController : MonoBehaviour
 {
     private GameObject target;

@@ -1,7 +1,7 @@
 using UnityEngine;
 
 // Written by Presley
-/* Class to begin game menu with saved audio preferences */
+// Class to begin game menu with saved audio preferences 
 public class MainMenuManager : MonoBehaviour
 {
     public AudioSource musicAudio;

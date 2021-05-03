@@ -4,7 +4,6 @@ using UnityEngine;
 using TMPro;
 
 //Written by Ale
-
 public class colGotDisplay : MonoBehaviour
 {
     [SerializeField] GameObject colManager; //serialized to check for proper functionality in editor

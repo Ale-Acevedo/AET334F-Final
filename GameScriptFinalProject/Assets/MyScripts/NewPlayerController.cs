@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//OBSOLETE, USE JAY'S CONTROLLER
 //Writtem by Ale
 public class NewPlayerController : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class NewPlayerController : MonoBehaviour
             colManager = GameObject.Find("ColManager");
         }
         int layerMask = 1 << 8; //Bit-shifting mask to Collision layer
+
         if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f && !isMoving) //Only accepts max input values when player is not moving
         {
             if (Physics2D.Raycast(transform.position, new Vector2(Input.GetAxisRaw("Horizontal"), 0f), colCheck, layerMask)) //Checks for collision 1 tile ahead
@@ -35,6 +37,7 @@ public class NewPlayerController : MonoBehaviour
                 StartCoroutine(MovePlayer(new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f))); //Initiate coroutine for player movement
             }
         }
+
         if (Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f && !isMoving)
         {
             if (Physics2D.Raycast(transform.position, new Vector2(0f, Input.GetAxisRaw("Vertical")), colCheck, layerMask))
@@ -88,8 +91,13 @@ public class NewPlayerController : MonoBehaviour
 
     public void LoseHealth(int amount)
     {
-        if (isInvincible) return; //return immediately if invincible, negating damage
+        if (isInvincible) 
+        {
+            return; //return immediately if invincible, negating damage
+        } 
+        
         health -= amount;
+
         if (health <= 0) //trigger death event
         {
             health = 0;

@@ -4,14 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 //Written by Ale
-
 public class CollectableManager : MonoBehaviour
 {
-    //public GameObject[] collectables;
-    //private int colTrack;
     public int colGot = 0;
     public static CollectableManager Instance; //specifying this particular instant of the manager
-    //private string currentScene;
 
     private void Start()
     {
@@ -20,9 +16,11 @@ public class CollectableManager : MonoBehaviour
             colGot = 0;
         }
     }
+
     private void Awake()
     {
         this.transform.parent = null;
+
         if (Instance == null) //checking for other copies of the manager
         {
             DontDestroyOnLoad(gameObject);
@@ -34,11 +32,6 @@ public class CollectableManager : MonoBehaviour
             Destroy(gameObject); //all subsequent copies of this manager will be deleted on load
         }
     }
-
-    //private void Start()
-    //{
-        
-    //}
 
     public void colGet()
     {
