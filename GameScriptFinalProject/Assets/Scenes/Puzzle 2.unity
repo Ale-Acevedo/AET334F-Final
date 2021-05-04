@@ -1950,6 +1950,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Black Heart
       objectReference: {fileID: 0}
+    - target: {fileID: 3055337236861297343, guid: f9f4be813f66d024ead3a925fdbebec4, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9f4be813f66d024ead3a925fdbebec4, type: 3}
 --- !u!4 &302041468 stripped
