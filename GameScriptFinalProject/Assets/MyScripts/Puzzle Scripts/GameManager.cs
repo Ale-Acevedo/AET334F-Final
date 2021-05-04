@@ -12,11 +12,24 @@ public class GameManager : MonoBehaviour
     public Player player; //Player variable
     private bool fxToggle = true; //Boolean to prevent fx overlap in update 
     public bool puzzleSolved; //Public bool to let NextLevelScript know when the player has completed the puzzle. - Kasey
+    private Vector2 moveInput;
+
+    //Boolean written by Ale
+    private bool tryingDiagonal() //collision breaks if the player tries moving diagonally for some reason, so this is to prevent that
+    {
+        if (Input.GetAxisRaw("Horizontal") != 0 && Input.GetAxisRaw("Vertical") != 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 
     void Start()
     {
         nextButton.SetActive(false); //ensures that the Next Level button will not activate when the level begins 
-
     }
 
     void Update()
@@ -26,10 +39,11 @@ public class GameManager : MonoBehaviour
 
         if (moveInput.sqrMagnitude > .5) //If button pressed or held, to this certain magnitude or above, move an exact value in any direction
         {
-            if (ReadyForInput)
+            if (ReadyForInput && !tryingDiagonal()) //Checking to make sure the player doesn't try moving diagonally
             {
                 ReadyForInput = false;
                 player.Move(moveInput);
+                Debug.Log(moveInput);
                 //nextButton.SetActive(IsLevelComplete());
             }
         }
